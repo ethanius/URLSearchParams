@@ -9,10 +9,12 @@
 	function URLSearchParams(params) {
 		this._keys = {};
 
-		var pairs = params.toString().split("&");
-		for (var x = 0; x < pairs.length; x++) {
-			var tmp = pairs[x].split("=");
-			this.append(decodeURIComponent(tmp[0]), decodeURIComponent(tmp.slice(1).join("=")));
+		if (params) {
+			var pairs = params.toString().split("&");
+			for (var x = 0; x < pairs.length; x++) {
+				var tmp = pairs[x].split("=");
+				this.append(decodeURIComponent(tmp[0]), decodeURIComponent(tmp.slice(1).join("=")));
+			}
 		}
 	};
 
